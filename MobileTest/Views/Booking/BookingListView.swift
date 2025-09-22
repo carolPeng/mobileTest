@@ -51,7 +51,7 @@ struct BookingListView: View {
                     hasAppeared = true
                     // 每次页面出现时获取数据
                     if let booking = dataManager.getBooking() {
-                        print("Booking data: \(booking)")
+                        print("\nPage Booking data: \(booking)")
                     }
                 }
             }

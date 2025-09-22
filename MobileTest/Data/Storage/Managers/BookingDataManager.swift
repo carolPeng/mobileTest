@@ -28,7 +28,9 @@ class BookingDataManager: ObservableObject {
     private func loadCachedBooking() {
         do {
             let bookings = try SQLiteManager.shared.getAllBookings()
-            if isCacheValid(),let cachedBooking = bookings.first{
+            if !isCacheValid() {
+                print("Error loading cached booking: 缓存已过期")
+            }else if let cachedBooking = bookings.first{
                 self.currentBooking = cachedBooking
                 print("Loaded booking from cache: \(cachedBooking)")
             }
